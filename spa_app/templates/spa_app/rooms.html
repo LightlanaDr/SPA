@@ -1,0 +1,267 @@
+{% extends 'spa_app/layout.html' %}
+
+{% block title %}
+Номера
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+
+img{
+    height: 100%;
+    width:  100%;
+    object-fit: cover;
+    border-radius: 6px;
+    filter:grayscale(0%);
+
+}
+
+img:hover{
+    transition: filter .5s ease-in-out;
+    filter: none;
+
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+    .index_cat {
+      display: grid;
+      /* Автоматически заполняем на всю ширину grid-контейнера */
+      grid-template-columns: repeat(auto-fill, 30%);
+      width: 100%;
+      justify-content: center;
+      justify-items: center; /* Размещаем карточку по центру */
+      column-gap: 20px; /* Отступ между колонками */
+      row-gap: 10px; /* Отступ между рядами */
+      margin: 0 auto;
+    }
+
+
+
+      .index_item {
+      width: 225px;
+      min-height: 250px;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column; /* Размещаем элементы в колонку */
+      border-radius: 4px;
+      transition: 0.2s;
+      position: relative;
+    }
+
+      .index__top {
+      flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+      position: relative;
+      overflow: hidden; /* Скрываем, что выходит за пределы */
+    }
+
+      .cat_name {
+      text-align: center;
+    }
+
+        @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){
+    .col-1-2 { display: none;   margin: 20px;}
+    .col-1-2-index {width: 100%; margin: auto; }
+    .knopka {margin: 5px; }
+    .index_cat {
+      grid-template-columns: repeat(auto-fill, 100%);
+    }
+    .modal-content {
+        width: 100%;
+    }
+
+</style>
+<div class="container">
+        <div class="index_cat">
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img
+                        src="https://images.acase.ru/acase_images/1503019/3138615267_P.jpg"
+                        alt="Стандарт «дабл» СПА" tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Стандарт «дабл» СПА</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img src="https://www.svetonoff.ru/upload/medialibrary/5fd/5fdd0345fe4865971e6e2b80872b28dc.jpg"
+                             alt="Джуниор Сюит by Mercure" tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Джуниор Сюит by Mercure</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img src="https://static0.abitant.com/uploads/project_image/676/357/yeccpfqmooxy42y39o5v.jpg"
+                             alt="Супериор Сюит by Mercure"
+                             tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Супериор Сюит by Mercure</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img
+                        src="https://images.acase.ru/acase_images/1503019/3138615267_P.jpg"
+                        alt="Стандарт «дабл» СПА" tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Стандарт «дабл» СПА</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img src="https://www.svetonoff.ru/upload/medialibrary/5fd/5fdd0345fe4865971e6e2b80872b28dc.jpg"
+                             alt="Джуниор Сюит by Mercure" tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Джуниор Сюит by Mercure</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img src="https://static0.abitant.com/uploads/project_image/676/357/yeccpfqmooxy42y39o5v.jpg"
+                             alt="Супериор Сюит by Mercure"
+                             tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Супериор Сюит by Mercure</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img
+                        src="https://images.acase.ru/acase_images/1503019/3138615267_P.jpg"
+                        alt="Стандарт «дабл» СПА" tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Стандарт «дабл» СПА</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img src="https://www.svetonoff.ru/upload/medialibrary/5fd/5fdd0345fe4865971e6e2b80872b28dc.jpg"
+                             alt="Джуниор Сюит by Mercure" tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Джуниор Сюит by Mercure</h5></a>
+                </div>
+            </div>
+            <div class="index_item">
+                <div class="index__top">
+                    <a href="#" class="card__image">
+                        <img src="https://static0.abitant.com/uploads/project_image/676/357/yeccpfqmooxy42y39o5v.jpg"
+                             alt="Супериор Сюит by Mercure"
+                             tabindex="0">
+                    </a>
+                </div>
+                <div class="index_text">
+                    <a href="#"><h5 class="cat_name">Супериор Сюит by Mercure</h5></a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}
